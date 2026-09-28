@@ -7,7 +7,7 @@ O NutriCount é um sistema web e mobile para controle de calorias, nutrientes e 
 2.1- Problemas que o sistema pretende resolver:Dificuldade de saber quantas calorias e nutrientes são consumidos por dia.
 - Registro manual, demorado e sem histórico (papel, notas ou planilhas).
 - Dificuldade de manter o hábito de beber água e de lembrar de registrar as refeições
-- Falta de dados confiáveis para o usuário e para o profissional que o acompanha entre as consultas.
+- Falta de dados confiáveis para o usuário e para o profissional que o acompanha entre as consultas
 2.2- Benefícios esperados: Registro rápido de refeições, com cálculo automático de calorias e macronutrientes.
 - Acompanhamento de metas de calorias e de água, com demonstrativo de evolução.
 - Lembretes automáticos que ajudam a manter a constância dos registros.
