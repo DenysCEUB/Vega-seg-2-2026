@@ -15,7 +15,8 @@ O controle é feito de forma manual (papel, bloco de notas ou planilhas) ou por 
 ## 3. Escopo funcional do sistema   
 3.1 -
 Permitir que o usuário registre suas refeições e o consumo de água diários e acompanhe sua evolução em relação às metas de calorias e de hidratação, com a possibilidade de vincular-se a um profissional de saúde que acompanha os resultados dentro do sistema. 
-3.2 - Funcionalidades específicas (secundárias) do sistema: 
+##
+3.2 -
 Cadastro e autenticação de usuário; perfil com dados físicos (peso, altura, idade, objetivo) e cálculo da necessidade calórica diária; catálogo de alimentos com informações nutricionais por porção, alimentado por base externa e por cadastro manual, usado para calcular automaticamente as calorias de cada refeição; diário alimentar com registro, alteração e exclusão de refeições, com foto do alimento opcional; relatórios de resumo diário, histórico e comparação com a meta; controle de hidratação, com meta diária de água, registro do consumo e demonstrativo de evolução (dias em que a meta foi batida e dias em que não foi); horários padrão das refeições com lembretes automáticos quando a refeição não for registrada; cadastro de profissional de saúde, com validação do registro profissional pelo administrador; vínculo entre usuário e profissional, com autorização do usuário para o compartilhamento dos dados; perfil do profissional com painel dos clientes vinculados e seus resultados (diário alimentar, hidratação e evolução); administração de usuários e do catálogo de alimentos.  
 
 ## 4. Escopo não funcional    
