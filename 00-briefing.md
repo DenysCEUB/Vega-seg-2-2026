@@ -5,15 +5,15 @@
 1.2 - Nome da equipe:  Pedro Henrique Dos Santos Soares e 
 
 ## 2. Problema e/ou necessidade    
-2.1 - Qual é o problema e/ou necessidade que o software deve resolver: 
+2.1 -
 Pessoas que querem controlar a alimentação (emagrecer, ganhar massa ou manter o peso) têm dificuldade de saber quantas calorias e nutrientes consomem por dia e de manter o hábito de beber água. O sistema deve permitir registrar refeições (com foto opcional) e consumo de água de forma rápida, calcular automaticamente calorias e macronutrientes, comparar o consumo com metas pessoais, lembrar o usuário de registrar as refeições nos horários habituais e permitir que o usuário se vincule ao profissional que o acompanha (nutricionista, nutrólogo ou médico), que passa a ver os resultados do cliente diretamente no sistema. 
-2.2 - Quais são as dores dos usuários: 
+2.2 -
 Registro manual e demorado em anotações ou planilhas; dificuldade de estimar calorias das porções; falta de histórico e de acompanhamento da evolução; não saber se está dentro da meta diária de calorias e de água; tabelas nutricionais espalhadas e pouco confiáveis; esquecer de registrar as refeições e de beber água ao longo do dia; para o profissional, dificuldade de acompanhar a alimentação real do cliente entre as consultas, dependendo de relatos e anotações soltas. 
-2.3 - O que acontece hoje sem o sistema: 
+2.3 - 
 O controle é feito de forma manual (papel, bloco de notas ou planilhas) ou por estimativa "de cabeça". Isso gera erros de cálculo, esquecimento dos registros, abandono do controle após poucos dias e falta de dados confiáveis para o usuário e para o profissional que o acompanha avaliarem os resultados.
 
 ## 3. Escopo funcional do sistema   
-3.1 - Principal objetivo do sistema: 
+3.1 -
 Permitir que o usuário registre suas refeições e o consumo de água diários e acompanhe sua evolução em relação às metas de calorias e de hidratação, com a possibilidade de vincular-se a um profissional de saúde que acompanha os resultados dentro do sistema. 
 3.2 - Funcionalidades específicas (secundárias) do sistema: 
 Cadastro e autenticação de usuário; perfil com dados físicos (peso, altura, idade, objetivo) e cálculo da necessidade calórica diária; catálogo de alimentos com informações nutricionais por porção, alimentado por base externa e por cadastro manual, usado para calcular automaticamente as calorias de cada refeição; diário alimentar com registro, alteração e exclusão de refeições, com foto do alimento opcional; relatórios de resumo diário, histórico e comparação com a meta; controle de hidratação, com meta diária de água, registro do consumo e demonstrativo de evolução (dias em que a meta foi batida e dias em que não foi); horários padrão das refeições com lembretes automáticos quando a refeição não for registrada; cadastro de profissional de saúde, com validação do registro profissional pelo administrador; vínculo entre usuário e profissional, com autorização do usuário para o compartilhamento dos dados; perfil do profissional com painel dos clientes vinculados e seus resultados (diário alimentar, hidratação e evolução); administração de usuários e do catálogo de alimentos.  
