@@ -29,8 +29,7 @@ Desempenho: busca de alimento em menos de 2 segundos.
 - Usuário: pessoa que registra refeições e consumo de água, define metas, configura horários de refeição, consulta relatórios e evolução e se vincula a um profissional.
 - Profissional de saúde (nutricionista, nutrólogo ou médico): possui perfil próprio, aceita vínculos de clientes e acompanha os resultados dos clientes vinculados.
 - Administrador: mantém o catálogo de alimentos, gerencia contas de usuários e valida o registro dos profissionais.
-- Base Nutricional Externa: sistema/API que fornece informações nutricionais de alimentos.
-- Serviço de Notificação: sistema externo responsável por entregar os lembretes ao usuário.
+
 ## 6. Entregáveis   
         • Documento de Visão do Sistema  
         • Diagrama de Caso de Uso  
