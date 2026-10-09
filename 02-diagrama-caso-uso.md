@@ -8,5 +8,6 @@ O Diagrama de Caso de Uso é importante para o NutriCount porque mostra, de form
   
 
 ## 3. Diagrama de Caso de Uso - Visão Detalhada
-Adicione aqui a imagem do diagrama de Caso de Uso de último nível (visão detalhada/completa).  
+<img width="4284" height="3240" alt="diagrama-caso-uso-nivel-2" src="https://github.com/user-attachments/assets/53ec9f8e-8944-47d6-88be-3d7630ad1392" />
+
 
