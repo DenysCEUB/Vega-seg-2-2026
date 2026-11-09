@@ -1,4 +1,3 @@
 # 🏗️ Diagrama de Classes
 
-<img width="4732" height="4875" alt="nutricount-diagrama-de-classes (1)" src="https://github.com/user-attachments/assets/adb791da-920d-47c6-a74c-9bb205176496" />
-
+<img width="760" height="646" alt="baixados" src="https://github.com/user-attachments/assets/5e1cebc5-daad-45b1-b7d8-8f6fdd976197" />
