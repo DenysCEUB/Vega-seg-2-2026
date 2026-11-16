@@ -220,6 +220,6 @@ flowchart LR
 
 ## 4. Protótipo
 
-**Protótipo navegável (versão 3, 39 telas):** https://claude.ai/artifact/5XQFyJQHLt8zo4GZYEL4yV
+**Protótipo navegável (versão 3, 39 telas):** https://claude.ai/artifact/5XQFyJQHLt8zo4GZYEL4yV#play-15dd8cd198dd
 
 O canvas está organizado em seis grupos: acesso e perfil, diário e alimentos, relatórios/hidratação/lembretes, vínculo com profissional, área do profissional e área do administrador. Para navegar, abra o link e clique em **Play** em qualquer tela. Os botões e links levam às outras telas, e as interações da seção 3.3 funcionam dentro de cada tela.
