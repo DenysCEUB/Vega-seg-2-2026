@@ -27,61 +27,61 @@ O Diagrama de Classes do NutriCount foi elaborado a partir do **Diagrama de Caso
 
 `CadastroUsuario` herda de `Pessoa` (herança). As classes `InclusaoUsuario` [UC1.1], `AlteracaoUsuario` [UC1.2] e `DesativacaoUsuario` [UC1.4] estendem o cadastro; `AutenticacaoUsuario` [UC1.3] é incluída. O atributo `perfil` guarda se o usuário é comum ou administrador.
 
-![Diagrama de classes UC1 — Cadastro de Usuário](imagens-diagrama-classes/classes-uc1.png)
+![Diagrama de classes UC1 — Cadastro de Usuário](https://github.com/user-attachments/assets/32377d15-8f9a-4d6f-9c80-bca3e99f8312)
 
 ### 3.2 UC2 — Perfil e Meta Calórica
 
 `PerfilMetaCalorica` é composta por `MetaCalorica` e `RegistroPeso`. `AlteracaoPerfil` [UC2.1] e `DefinicaoMetaCalorica` [UC2.2] estendem; `CalculoNecessidadeCalorica` [UC2.3] e `ConsultaPerfil` [UC2.4] são incluídas.
 
-![Diagrama de classes UC2 — Perfil e Meta Calórica](imagens-diagrama-classes/classes-uc2.png)
+![Diagrama de classes UC2 — Perfil e Meta Calórica](https://github.com/user-attachments/assets/21bfa840-6ee3-47fc-9044-7ca012ec9558)
 
 ### 3.3 UC3 — Catálogo de Alimentos
 
 `CatalogoAlimento` é composto por `MedidaCaseira`. `InclusaoAlimento` [UC3.1], `AlteracaoAlimento` [UC3.2], `DesativacaoAlimento` [UC3.4] e `ImportacaoAlimentoBaseExterna` [UC3.5] estendem; `ConsultaAlimento` [UC3.3] é incluída (e também usada pelo UC4.1).
 
-![Diagrama de classes UC3 — Catálogo de Alimentos](imagens-diagrama-classes/classes-uc3.png)
+![Diagrama de classes UC3 — Catálogo de Alimentos](https://github.com/user-attachments/assets/b34785d7-51a0-4abb-9a50-0f1afb00838d)
 
 ### 3.4 UC4 — Diário Alimentar
 
 `DiarioAlimentar` é composto por `ItemRefeicao` e `FotoRefeicao`. `RegistroRefeicao` [UC4.1], `AlteracaoRefeicao` [UC4.2] e `ExclusaoRefeicao` [UC4.3] estendem; `AnexoFotoRefeicao` [UC4.5] estende o `RegistroRefeicao`; `ConsultaDiario` [UC4.4] é incluída.
 
-![Diagrama de classes UC4 — Diário Alimentar](imagens-diagrama-classes/classes-uc4.png)
+![Diagrama de classes UC4 — Diário Alimentar](https://github.com/user-attachments/assets/5dc37690-2158-46f3-8cae-a2ff86fa15e5)
 
 ### 3.5 UC5 — Relatórios de Consumo
 
 `RelatorioConsumo` é composto por `ConsumoDiario`. As três classes [UC5.1 a UC5.3] são incluídas.
 
-![Diagrama de classes UC5 — Relatórios de Consumo](imagens-diagrama-classes/classes-uc5.png)
+![Diagrama de classes UC5 — Relatórios de Consumo](https://github.com/user-attachments/assets/c146005c-4aaf-4733-b600-871a46b3863a)
 
 ### 3.6 UC6 — Controle de Hidratação
 
 `ControleHidratacao` é composto por `RegistroAgua`. `DefinicaoMetaAgua` [UC6.1], `RegistroConsumoAgua` [UC6.2] e `AlteracaoConsumoAgua` [UC6.3] estendem; `ConsultaEvolucaoHidratacao` [UC6.4] é incluída.
 
-![Diagrama de classes UC6 — Controle de Hidratação](imagens-diagrama-classes/classes-uc6.png)
+![Diagrama de classes UC6 — Controle de Hidratação](https://github.com/user-attachments/assets/55264279-e125-4436-acbe-b5cc67608826)
 
 ### 3.7 UC7 — Lembretes de Refeição
 
 `LembreteRefeicao` é composto por `LogEnvio`. `DefinicaoHorarioRefeicao` [UC7.1] e `AlteracaoHorarioRefeicao` [UC7.2] estendem; `EnvioLembreteRefeicao` [UC7.3] é incluída.
 
-![Diagrama de classes UC7 — Lembretes de Refeição](imagens-diagrama-classes/classes-uc7.png)
+![Diagrama de classes UC7 — Lembretes de Refeição](https://github.com/user-attachments/assets/5a892471-b7fd-4609-a108-088e8e9745c4)
 
 ### 3.8 UC8 — Cadastro de Profissional
 
 `CadastroProfissional` herda de `Pessoa` e é composto por `ValidacaoRegistro`. `InclusaoProfissional` [UC8.1], `AlteracaoProfissional` [UC8.2] e `DesativacaoProfissional` [UC8.4] estendem; `ValidacaoRegistroProfissional` [UC8.3] é incluída.
 
-![Diagrama de classes UC8 — Cadastro de Profissional](imagens-diagrama-classes/classes-uc8.png)
+![Diagrama de classes UC8 — Cadastro de Profissional](https://github.com/user-attachments/assets/0db2b6e5-fa41-423c-8581-792d2b59540a)
 
 ### 3.9 UC9 — Vínculo com Profissional
 
 `VinculoProfissional` é composto por `Consentimento`. `SolicitacaoVinculo` [UC9.2], `AceiteVinculo` [UC9.4] e `EncerramentoVinculo` [UC9.5] estendem; `BuscaProfissional` [UC9.1] é incluída; `AutorizacaoCompartilhamentoDados` [UC9.3] é incluída pela `SolicitacaoVinculo`.
 
-![Diagrama de classes UC9 — Vínculo com Profissional](imagens-diagrama-classes/classes-uc9.png)
+![Diagrama de classes UC9 — Vínculo com Profissional](https://github.com/user-attachments/assets/42ec4d00-2157-4335-8aa7-c0fbe7ab3502)
 
 ### 3.10 UC10 — Acompanhamento de Clientes
 
 `AcompanhamentoCliente` é composto por `LogAcesso`. As três classes [UC10.1 a UC10.3] são incluídas.
 
-![Diagrama de classes UC10 — Acompanhamento de Clientes](imagens-diagrama-classes/classes-uc10.png)
+![Diagrama de classes UC10 — Acompanhamento de Clientes](https://github.com/user-attachments/assets/dc0039bb-6b74-4c15-b587-c878e3eb8089)
 
 ---
 
