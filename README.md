@@ -7,9 +7,8 @@ Disciplina: Análise e Projeto de Sistemas
 
 Orientador: Prof. Me. Denys Alves da Silva
 
-Nome do grupo: [NOME DO GRUPO]
 
-Alunos: Pedro Henrique Dos Santos Soares ([E-MAIL]@sempreceub.com), Mateus Itibal ([E-MAIL]@sempreceub.com)
+Alunos: Pedro Henrique Dos Santos Soares (pepehsoares11@sempreceub.com) Mateus Itibal (mateus.itibal@sempreceub.com)
 
 ---
 
