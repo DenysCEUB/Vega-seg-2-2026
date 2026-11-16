@@ -75,7 +75,7 @@ Detalhes no [Documento de Arquitetura do Sistema](05-arquitetura-sistema.md).
 
 Protótipo navegável com 39 telas, cobrindo todos os casos de uso específicos (usuário no celular; profissional e administrador no computador):
 
-**https://claude.ai/artifact/6LHKsHMJNXdr1oEQj9DBRr**
+**https://claude.ai/artifact/5XQFyJQHLt8zo4GZYEL4yV**
 
 Para navegar, abra o link e clique em **Play** em qualquer tela. A lista de telas e o roteiro de teste estão em [Protótipo do Sistema](06-prototipo.md).
 
