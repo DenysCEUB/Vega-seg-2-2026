@@ -4,6 +4,19 @@
 
 | Item | Descrição |
 |---|---|
+| Caso de Uso | UC1 – Cadastro de Usuário |
+| Finalidade | Permitir a manutenção do cadastro de usuários com as opções de incluir, alterar, autenticar e desativar a conta. |
+| Atores | Usuário, Administrador e Profissional de Saúde. O Usuário e o Administrador mantêm as contas; os três perfis se autenticam para usar o sistema. |
+| Pré-condições | Para incluir a própria conta [UC1.1], nenhuma. Para as demais opções, ator previamente autenticado no sistema [UC1.3]. |
+| Fluxo Principal | 1 - **Ator** seleciona a opção “Cadastro de Usuário” no menu principal.<br>2 - **Sistema** apresenta a tela “Cadastro de Usuário” e ativa o [UC1.3].<br>3 - **Ator** seleciona entre [UC1.1], [UC1.2], [UC1.3], [UC1.4] ou sair deste UC.<br>4 - **Sistema** retorna para o menu principal. |
+| Fluxos Alternativos | FA1 – Incluir Usuário, vai para o [UC1.1] [passo 3 do Fluxo Principal]<br>FA2 – Alterar Usuário, vai para o [UC1.2] [passo 3 do Fluxo Principal]<br>FA3 – Autenticar Usuário, vai para o [UC1.3] [passo 3 do Fluxo Principal]<br>FA4 – Desativar Usuário, vai para o [UC1.4] [passo 3 do Fluxo Principal]<br>FA5 – Saída do Caso de Uso [passo 4 do Fluxo Principal]<br>&emsp;1 - **Ator** seleciona a opção Sair.<br>&emsp;2 - **Sistema** retorna ao menu principal.<br>FA6 – Falha técnica ou indisponibilidade do sistema [Pode ocorrer em qualquer ponto do UC]<br>&emsp;1 - **Sistema** exibe mensagem de erro técnico com confirmação do ator.<br>&emsp;2 - **Sistema** registra o erro para o log de auditoria.<br>&emsp;3 - **Sistema** retorna ao menu principal ou à tela “Cadastro de Usuário”. |
+| Pós-condições | Manutenção (inclusão, alteração, autenticação ou desativação) realizada pelo ator. |
+| Regras de negócio | RN01: O e-mail é único no sistema e deve ter formato válido.<br>RN02: A senha deve ter no mínimo 8 caracteres, com ao menos uma letra e um número.<br>RN03: O usuário deve ter no mínimo 16 anos.<br>RN04: A troca de e-mail só é efetivada após a confirmação pelo link enviado ao novo endereço, que expira em 24 horas.<br>RN05: Após 5 tentativas de login malsucedidas consecutivas, a conta fica bloqueada por 15 minutos.<br>RN06: A sessão expira após 30 dias sem uso no aplicativo móvel e após 2 horas de inatividade na versão web.<br>RN07: Uma conta desativada pode ser reativada em até 90 dias. Após esse prazo, os dados pessoais são anonimizados, em conformidade com a LGPD.<br>RN08: O sistema não faz exclusão física de usuários; usa exclusão lógica (status). |
+| Dados Manipulados | **Nome** do usuário com no máximo 60 caracteres, alfabético e obrigatório. **E-mail** com no máximo 100 caracteres, formato nome@dominio.com, único e obrigatório. **Senha** com 8 a 20 caracteres, ao menos uma letra e um número, obrigatória e gravada criptografada. **Confirmação de senha** igual à senha, obrigatória. **Data de nascimento** no formato DD/MM/AAAA, obrigatória, idade mínima de 16 anos. **Sexo** escolhido em lista (Feminino ou Masculino), obrigatório. **Aceite dos Termos de Uso** caixa de seleção obrigatória. **Status** gerado pelo sistema (Ativo ou Inativo). **Senha atual** obrigatória apenas na troca de senha. **Nova senha** com 8 a 20 caracteres, ao menos uma letra e um número. **Confirmação da nova senha** igual à nova senha. **Data de atualização** gerada pelo sistema (DD/MM/AAAA HH:MM). **Token de sessão** gerado pelo sistema. **Data/hora do acesso** gerada (DD/MM/AAAA HH:MM). **Tentativas malsucedidas** número inteiro de 0 a 5, controlado pelo sistema. **Motivo** texto de até 200 caracteres, opcional para o Usuário e obrigatório para o Administrador. **Data da desativação** gerada (DD/MM/AAAA HH:MM). **Responsável pela desativação** gerado pelo sistema (Usuário ou Administrador). |
+
+
+| Item | Descrição |
+|---|---|
 | Caso de Uso | UC1.1 – Incluir Usuário |
 | Finalidade | Permitir a criação de uma nova conta de usuário no NutriCount, por autocadastro ou por inclusão feita pelo Administrador. |
 | Atores | Usuário e Administrador. O Usuário se cadastra sozinho; o Administrador também pode incluir usuários. |
@@ -54,6 +67,19 @@
 
 | Item | Descrição |
 |---|---|
+| Caso de Uso | UC2 – Perfil e Meta Calórica |
+| Finalidade | Permitir ao usuário manter o perfil (peso, altura, nível de atividade e objetivo) e a meta calórica diária, com as opções de alterar, definir, calcular e consultar. |
+| Atores | Usuário. Mantém o próprio perfil e a meta de calorias. |
+| Pré-condições | Ator previamente autenticado no sistema [UC1.3]. |
+| Fluxo Principal | 1 - **Ator** seleciona a opção “Perfil e Meta Calórica” no menu principal.<br>2 - **Sistema** apresenta a tela “Perfil e Meta Calórica” e ativa o [UC2.3] e [UC2.4].<br>3 - **Ator** seleciona entre [UC2.1], [UC2.2], [UC2.3], [UC2.4] ou sair deste UC.<br>4 - **Sistema** retorna para o menu principal. |
+| Fluxos Alternativos | FA1 – Alterar Perfil, vai para o [UC2.1] [passo 3 do Fluxo Principal]<br>FA2 – Definir Meta Calórica, vai para o [UC2.2] [passo 3 do Fluxo Principal]<br>FA3 – Calcular Necessidade Calórica, vai para o [UC2.3] [passo 3 do Fluxo Principal]<br>FA4 – Consultar Perfil, vai para o [UC2.4] [passo 3 do Fluxo Principal]<br>FA5 – Saída do Caso de Uso [passo 4 do Fluxo Principal]<br>&emsp;1 - **Ator** seleciona a opção Sair.<br>&emsp;2 - **Sistema** retorna ao menu principal.<br>FA6 – Falha técnica ou indisponibilidade do sistema [Pode ocorrer em qualquer ponto do UC]<br>&emsp;1 - **Sistema** exibe mensagem de erro técnico com confirmação do ator.<br>&emsp;2 - **Sistema** registra o erro para o log de auditoria.<br>&emsp;3 - **Sistema** retorna ao menu principal ou à tela “Perfil e Meta Calórica”. |
+| Pós-condições | Manutenção (alteração, definição, cálculo ou consulta) realizada pelo ator, com a meta calórica atualizada. |
+| Regras de negócio | RN09: Faixas aceitas: peso entre 30 e 300 kg; altura entre 100 e 250 cm.<br>RN10: Níveis de atividade e fatores: sedentário (1,2), levemente ativo (1,375), moderadamente ativo (1,55), muito ativo (1,725), extremamente ativo (1,9).<br>RN11: A meta calórica deve estar entre 1.200 e 5.000 kcal/dia.<br>RN12: Distribuição padrão de macronutrientes: 50% carboidratos, 20% proteínas e 30% gorduras.<br>RN13: Ao definir uma nova meta, a anterior é mantida no histórico com data de fim, para que relatórios de períodos passados usem a meta vigente na época.<br>RN14: TMB (Mifflin-St Jeor): homens = 10 × peso + 6,25 × altura − 5 × idade + 5; mulheres = 10 × peso + 6,25 × altura − 5 × idade − 161.<br>RN15: Ajuste por objetivo: perder peso = GET − 500 kcal; manter = GET; ganhar peso = GET + 300 kcal.<br>RN16: IMC = peso ÷ altura² (altura em metros), classificado conforme a tabela da OMS. |
+| Dados Manipulados | **Peso** em kg, numérico com 1 casa decimal, entre 30 e 300 e obrigatório. **Altura** em cm, número inteiro entre 100 e 250 e obrigatório. **Sexo** escolhido em lista (Feminino ou Masculino), obrigatório. **Data de nascimento** DD/MM/AAAA, obrigatória. **Nível de atividade física** escolhido em lista (sedentário, levemente ativo, moderadamente ativo, muito ativo, extremamente ativo), obrigatório. **Objetivo** escolhido em lista (perder, manter ou ganhar peso), obrigatório. **Meta calórica** em kcal/dia, número inteiro entre 1.200 e 5.000 e obrigatório. **Origem** gerada pelo sistema (Calculada ou Personalizada). **Percentual de carboidratos, proteínas e gorduras** números inteiros de 0 a 100, cuja soma deve ser 100, obrigatórios (padrão 50, 20 e 30). **Data de início e data de fim da vigência** DD/MM/AAAA, geradas pelo sistema. **Idade** em anos, número inteiro calculado pelo sistema. **Fator de atividade** numérico com 3 casas decimais, entre 1,2 e 1,9. **TMB, GET e necessidade calórica** em kcal, números inteiros calculados pelo sistema. Todos os dados são obrigatórios para o cálculo. **nível de atividade** e **objetivo**, exibidos como cadastrados no [UC2.1]. **IMC** com 1 casa decimal, calculado e classificado pelo sistema. **TMB, GET e meta calórica** em kcal, números inteiros. **Histórico de peso** com data (DD/MM/AAAA) e peso (kg). Todos os campos são somente leitura. |
+
+
+| Item | Descrição |
+|---|---|
 | Caso de Uso | UC2.1 – Alterar Perfil |
 | Finalidade | Permitir informar ou atualizar os dados físicos e o objetivo do usuário, usados no cálculo nutricional. |
 | Atores | Usuário. |
@@ -101,6 +127,19 @@
 | Dados Manipulados | **Peso** (kg), **altura** (cm), **sexo**, **data de nascimento** (DD/MM/AAAA), **nível de atividade** e **objetivo**, exibidos como cadastrados no [UC2.1]. **IMC** com 1 casa decimal, calculado e classificado pelo sistema. **TMB, GET e meta calórica** em kcal, números inteiros. **Histórico de peso** com data (DD/MM/AAAA) e peso (kg). Todos os campos são somente leitura. |
 
 ## UC3 – Catálogo de Alimentos
+
+| Item | Descrição |
+|---|---|
+| Caso de Uso | UC3 – Catálogo de Alimentos |
+| Finalidade | Permitir a manutenção do catálogo de alimentos com as opções de incluir, alterar, consultar, desativar e importar alimentos da base nutricional externa. |
+| Atores | Administrador, Usuário e Base Nutricional Externa. O Administrador mantém o catálogo geral, o Usuário mantém seus alimentos próprios e a Base Externa fornece os dados na importação. |
+| Pré-condições | Ator previamente autenticado no sistema [UC1.3]. |
+| Fluxo Principal | 1 - **Ator** seleciona a opção “Catálogo de Alimentos” no menu principal.<br>2 - **Sistema** apresenta a tela “Catálogo de Alimentos” e ativa o [UC3.3].<br>3 - **Ator** seleciona entre [UC3.1], [UC3.2], [UC3.3], [UC3.4], [UC3.5] ou sair deste UC.<br>4 - **Sistema** retorna para o menu principal. |
+| Fluxos Alternativos | FA1 – Incluir Alimento, vai para o [UC3.1] [passo 3 do Fluxo Principal]<br>FA2 – Alterar Alimento, vai para o [UC3.2] [passo 3 do Fluxo Principal]<br>FA3 – Consultar Alimento, vai para o [UC3.3] [passo 3 do Fluxo Principal]<br>FA4 – Desativar Alimento, vai para o [UC3.4] [passo 3 do Fluxo Principal]<br>FA5 – Importar Alimento da Base Externa, vai para o [UC3.5] [passo 3 do Fluxo Principal]<br>FA6 – Saída do Caso de Uso [passo 4 do Fluxo Principal]<br>&emsp;1 - **Ator** seleciona a opção Sair.<br>&emsp;2 - **Sistema** retorna ao menu principal.<br>FA7 – Falha técnica ou indisponibilidade do sistema [Pode ocorrer em qualquer ponto do UC]<br>&emsp;1 - **Sistema** exibe mensagem de erro técnico com confirmação do ator.<br>&emsp;2 - **Sistema** registra o erro para o log de auditoria.<br>&emsp;3 - **Sistema** retorna ao menu principal ou à tela “Catálogo de Alimentos”. |
+| Pós-condições | Manutenção (inclusão, alteração, consulta, desativação ou importação) realizada pelo ator. |
+| Regras de negócio | RN17: Nome, porção de referência e calorias são obrigatórios; os demais nutrientes são opcionais.<br>RN18: Nenhum valor nutricional pode ser negativo, e a soma de proteínas, carboidratos e gorduras não pode exceder a porção de referência em gramas.<br>RN19: Alimentos criados por Usuários são privados; somente o Administrador pode publicar alimentos no catálogo geral.<br>RN20: Cada refeição registrada guarda uma cópia dos valores nutricionais do alimento no momento do registro; alterações posteriores no catálogo não mudam o histórico.<br>RN21: A busca ignora acentos e maiúsculas/minúsculas e ordena os resultados por relevância e frequência de uso.<br>RN22: Alimentos não são excluídos fisicamente, pois podem estar referenciados em refeições registradas.<br>RN23: Os valores importados são convertidos para a porção de referência de 100 g ou 100 ml.<br>RN24: O código de origem é guardado para impedir importações duplicadas do mesmo alimento. |
+| Dados Manipulados | **Nome** com no máximo 80 caracteres e obrigatório. **Marca** com no máximo 50 caracteres, opcional. **Categoria** escolhida em lista, obrigatória. **Porção de referência** numérica maior que zero, até 4 dígitos, obrigatória. **Unidade** escolhida em lista (g ou ml), obrigatória. **Calorias** em kcal, numérico com 1 casa decimal, maior ou igual a zero, obrigatório. **Proteínas, carboidratos, gorduras e fibras** em g, numéricos com 1 casa decimal, maiores ou iguais a zero, opcionais. **Sódio** em mg, numérico, opcional. **Origem** gerada pelo sistema (Manual ou Base Externa). **Visibilidade** gerada pelo sistema (Pública ou Privada). **Status** gerado pelo sistema (Ativo ou Inativo). **Data de atualização** gerada pelo sistema (DD/MM/AAAA HH:MM). **Responsável** gerado pelo sistema. **Termo de busca** com 3 a 80 caracteres e obrigatório. **Filtro de categoria** escolhido em lista, opcional. **Filtro de origem** escolhido em lista (Manual ou Base Externa), opcional. **Lista de alimentos** com nome, marca, porção de referência e calorias, somente leitura. **Detalhes nutricionais** (calorias, proteínas, carboidratos, gorduras, fibras e sódio), somente leitura. **Motivo** escolhido em lista (duplicado, dados incorretos ou outro) com complemento de até 200 caracteres, obrigatório para o Administrador. **Data da desativação** gerada (DD/MM/AAAA HH:MM). **Código do alimento na base externa** texto de até 30 caracteres, gerado pela base, único. **Dados nutricionais** (calorias, proteínas, carboidratos, gorduras, fibras e sódio) numéricos, convertidos para 100 g ou 100 ml. **Data da importação** gerada pelo sistema (DD/MM/AAAA HH:MM). |
+
 
 | Item | Descrição |
 |---|---|
@@ -166,6 +205,19 @@
 
 | Item | Descrição |
 |---|---|
+| Caso de Uso | UC4 – Diário Alimentar |
+| Finalidade | Permitir ao usuário manter o diário alimentar com as opções de registrar, alterar, excluir e consultar refeições, e anexar foto à refeição. |
+| Atores | Usuário. Mantém o próprio diário alimentar. |
+| Pré-condições | Ator previamente autenticado no sistema [UC1.3]. |
+| Fluxo Principal | 1 - **Ator** seleciona a opção “Diário Alimentar” no menu principal.<br>2 - **Sistema** apresenta a tela “Diário Alimentar” e ativa o [UC4.4].<br>3 - **Ator** seleciona entre [UC4.1], [UC4.2], [UC4.3], [UC4.4], [UC4.5] ou sair deste UC.<br>4 - **Sistema** retorna para o menu principal. |
+| Fluxos Alternativos | FA1 – Registrar Refeição, vai para o [UC4.1] [passo 3 do Fluxo Principal]<br>FA2 – Alterar Refeição, vai para o [UC4.2] [passo 3 do Fluxo Principal]<br>FA3 – Excluir Refeição, vai para o [UC4.3] [passo 3 do Fluxo Principal]<br>FA4 – Consultar Diário, vai para o [UC4.4] [passo 3 do Fluxo Principal]<br>FA5 – Anexar Foto da Refeição, vai para o [UC4.5] [passo 3 do Fluxo Principal] (opção a partir do registro da refeição [UC4.1])<br>FA6 – Saída do Caso de Uso [passo 4 do Fluxo Principal]<br>&emsp;1 - **Ator** seleciona a opção Sair.<br>&emsp;2 - **Sistema** retorna ao menu principal.<br>FA7 – Falha técnica ou indisponibilidade do sistema [Pode ocorrer em qualquer ponto do UC]<br>&emsp;1 - **Sistema** exibe mensagem de erro técnico com confirmação do ator.<br>&emsp;2 - **Sistema** registra o erro para o log de auditoria.<br>&emsp;3 - **Sistema** retorna ao menu principal ou à tela “Diário Alimentar”. |
+| Pós-condições | Manutenção (registro, alteração, exclusão, consulta ou anexo de foto) realizada pelo ator, com os totais do dia recalculados. |
+| Regras de negócio | RN20: Cada refeição registrada guarda uma cópia dos valores nutricionais do alimento no momento do registro; alterações posteriores no catálogo não mudam o histórico.<br>RN25: Tipos de refeição: café da manhã, lanche da manhã, almoço, lanche da tarde, jantar e ceia. A sugestão é feita pelos horários definidos em [UC7.1] ou, na falta deles, por faixas padrão.<br>RN26: Valor do item = (quantidade consumida ÷ porção de referência) × valor nutricional da porção.<br>RN27: Refeições e registros de água podem ser registrados, alterados ou excluídos com até 7 dias de retroatividade.<br>RN28: A exclusão de refeições é física, pois são dados do próprio Usuário; a foto anexada também é removida do armazenamento.<br>RN29: Formatos de foto aceitos: JPG, PNG e HEIC; tamanho máximo de 10 MB; uma foto por refeição. |
+| Dados Manipulados | **Data** DD/MM/AAAA, obrigatória, não futura e com no máximo 7 dias de retroatividade. **Horário** HH:MM, obrigatório. **Tipo de refeição** escolhido em lista (café da manhã, lanche da manhã, almoço, lanche da tarde, jantar ou ceia), obrigatório. **Itens** com ao menos um alimento, escolhido pelo [UC3.3], obrigatório. **Quantidade** numérica maior que zero, com até 2 casas decimais, obrigatória. **Unidade** escolhida em lista (g, ml ou medida caseira), obrigatória. **Valores nutricionais** calculados pelo sistema. **Observação** com até 200 caracteres, opcional. **Foto** opcional [UC4.5]. **Data de atualização** gerada pelo sistema (DD/MM/AAAA HH:MM). **Identificador da refeição** gerado pelo sistema, somente leitura. **Confirmação da exclusão** obrigatória. **Data da exclusão** gerada pelo sistema (DD/MM/AAAA HH:MM). **Refeições e itens** (tipo, horário, alimento, quantidade e unidade), somente leitura. **Totais** de calorias (kcal) e macronutrientes (g) calculados pelo sistema. **Meta do dia** e **saldo** em kcal, calculados pelo sistema. **Arquivo de imagem** nos formatos JPG, PNG ou HEIC, obrigatório. **Tamanho** de até 10 MB. **Data de envio** gerada pelo sistema (DD/MM/AAAA HH:MM). |
+
+
+| Item | Descrição |
+|---|---|
 | Caso de Uso | UC4.1 – Registrar Refeição |
 | Finalidade | Registrar uma refeição no diário, com os alimentos e as quantidades consumidas. |
 | Atores | Usuário. |
@@ -228,6 +280,19 @@
 
 | Item | Descrição |
 |---|---|
+| Caso de Uso | UC5 – Relatórios de Consumo |
+| Finalidade | Permitir ao usuário consultar o resumo diário, o histórico de consumo e a comparação do consumo com a meta. |
+| Atores | Usuário. Consulta os próprios relatórios. |
+| Pré-condições | Ator previamente autenticado no sistema [UC1.3]. |
+| Fluxo Principal | 1 - **Ator** seleciona a opção “Relatórios de Consumo” no menu principal.<br>2 - **Sistema** apresenta a tela “Relatórios de Consumo” e ativa o [UC5.1], [UC5.2] e [UC5.3].<br>3 - **Ator** seleciona entre [UC5.1], [UC5.2], [UC5.3] ou sair deste UC.<br>4 - **Sistema** retorna para o menu principal. |
+| Fluxos Alternativos | FA1 – Consultar Resumo Diário, vai para o [UC5.1] [passo 3 do Fluxo Principal]<br>FA2 – Consultar Histórico, vai para o [UC5.2] [passo 3 do Fluxo Principal]<br>FA3 – Comparar Consumo com Meta, vai para o [UC5.3] [passo 3 do Fluxo Principal]<br>FA4 – Saída do Caso de Uso [passo 4 do Fluxo Principal]<br>&emsp;1 - **Ator** seleciona a opção Sair.<br>&emsp;2 - **Sistema** retorna ao menu principal.<br>FA5 – Falha técnica ou indisponibilidade do sistema [Pode ocorrer em qualquer ponto do UC]<br>&emsp;1 - **Sistema** exibe mensagem de erro técnico com confirmação do ator.<br>&emsp;2 - **Sistema** registra o erro para o log de auditoria.<br>&emsp;3 - **Sistema** retorna ao menu principal ou à tela “Relatórios de Consumo”. |
+| Pós-condições | Consulta realizada pelo ator, sem alteração de dados. |
+| Regras de negócio | RN13: Ao definir uma nova meta, a anterior é mantida no histórico com data de fim, para que relatórios de períodos passados usem a meta vigente na época.<br>RN30: Calorias por grama: proteínas e carboidratos = 4 kcal/g; gorduras = 9 kcal/g.<br>RN31: Dias sem nenhum registro não entram no cálculo das médias.<br>RN32: O período personalizado pode ter no máximo 365 dias.<br>RN33: Classificação: Dentro da meta (até 10% acima ou abaixo), Abaixo da meta (mais de 10% abaixo) e Acima da meta (mais de 10% acima). |
+| Dados Manipulados | **Data** DD/MM/AAAA, obrigatória e não futura. **Total de calorias** em kcal. **Proteínas, carboidratos, gorduras e fibras** em g, com 1 casa decimal. **Calorias por refeição** em kcal. **Consumo de água** em ml. Todos os valores são calculados pelo sistema e somente leitura. **Período** com data inicial e data final no formato DD/MM/AAAA, obrigatórias, final maior ou igual à inicial e intervalo de no máximo 365 dias. **Calorias e macronutrientes por dia** em kcal e g. **Médias** calculadas pelo sistema. **Dias registrados** número inteiro. **Formato de exportação** escolhido em lista (PDF ou CSV), opcional. **Consumo** do dia ou período em kcal e g. **Meta vigente** em kcal/dia e percentuais de macronutrientes. **Diferença** em kcal (inteiro) e em percentual (1 casa decimal). **Situação** gerada pelo sistema (Dentro da meta, Abaixo da meta ou Acima da meta). Todos os campos são calculados e somente leitura. |
+
+
+| Item | Descrição |
+|---|---|
 | Caso de Uso | UC5.1 – Consultar Resumo Diário |
 | Finalidade | Exibir o resumo nutricional de um dia: calorias, macronutrientes e distribuição por refeição. |
 | Atores | Usuário. |
@@ -263,6 +328,19 @@
 | Dados Manipulados | **Consumo** do dia ou período em kcal e g. **Meta vigente** em kcal/dia e percentuais de macronutrientes. **Diferença** em kcal (inteiro) e em percentual (1 casa decimal). **Situação** gerada pelo sistema (Dentro da meta, Abaixo da meta ou Acima da meta). Todos os campos são calculados e somente leitura. |
 
 ## UC6 – Controle de Hidratação
+
+| Item | Descrição |
+|---|---|
+| Caso de Uso | UC6 – Controle de Hidratação |
+| Finalidade | Permitir ao usuário controlar a hidratação com as opções de definir a meta de água, registrar, alterar e consultar a evolução do consumo. |
+| Atores | Usuário. Mantém o próprio controle de água. |
+| Pré-condições | Ator previamente autenticado no sistema [UC1.3]. |
+| Fluxo Principal | 1 - **Ator** seleciona a opção “Controle de Hidratação” no menu principal.<br>2 - **Sistema** apresenta a tela “Controle de Hidratação” e ativa o [UC6.4].<br>3 - **Ator** seleciona entre [UC6.1], [UC6.2], [UC6.3], [UC6.4] ou sair deste UC.<br>4 - **Sistema** retorna para o menu principal. |
+| Fluxos Alternativos | FA1 – Definir Meta de Água, vai para o [UC6.1] [passo 3 do Fluxo Principal]<br>FA2 – Registrar Consumo de Água, vai para o [UC6.2] [passo 3 do Fluxo Principal]<br>FA3 – Alterar Consumo de Água, vai para o [UC6.3] [passo 3 do Fluxo Principal]<br>FA4 – Consultar Evolução da Hidratação, vai para o [UC6.4] [passo 3 do Fluxo Principal]<br>FA5 – Saída do Caso de Uso [passo 4 do Fluxo Principal]<br>&emsp;1 - **Ator** seleciona a opção Sair.<br>&emsp;2 - **Sistema** retorna ao menu principal.<br>FA6 – Falha técnica ou indisponibilidade do sistema [Pode ocorrer em qualquer ponto do UC]<br>&emsp;1 - **Sistema** exibe mensagem de erro técnico com confirmação do ator.<br>&emsp;2 - **Sistema** registra o erro para o log de auditoria.<br>&emsp;3 - **Sistema** retorna ao menu principal ou à tela “Controle de Hidratação”. |
+| Pós-condições | Manutenção (definição, registro, alteração ou consulta) realizada pelo ator, com o total de água do dia atualizado. |
+| Regras de negócio | RN27: Refeições e registros de água podem ser registrados, alterados ou excluídos com até 7 dias de retroatividade.<br>RN32: O período personalizado pode ter no máximo 365 dias.<br>RN34: Meta de água sugerida = 35 ml × peso (kg), arredondada para múltiplos de 50 ml.<br>RN35: A meta de água deve estar entre 1.000 e 6.000 ml/dia.<br>RN36: Cada registro de água deve ter entre 1 e 2.000 ml. |
+| Dados Manipulados | **Meta diária** em ml, número inteiro entre 1.000 e 6.000 e obrigatório. **Origem** gerada pelo sistema (Calculada ou Personalizada). **Data de vigência** DD/MM/AAAA, gerada pelo sistema. **Data** DD/MM/AAAA, obrigatória e não futura. **Horário** HH:MM, obrigatório. **Quantidade** em ml, número inteiro entre 1 e 2.000 e obrigatória. **Identificador do registro** gerado pelo sistema, somente leitura. **Período** com data inicial e final no formato DD/MM/AAAA, obrigatórias e com no máximo 365 dias. **Total por dia** e **meta por dia** em ml. **Média** em ml, calculada pelo sistema. **Dias com meta atingida** e **sequência de dias** números inteiros calculados pelo sistema. |
+
 
 | Item | Descrição |
 |---|---|
@@ -316,6 +394,19 @@
 
 | Item | Descrição |
 |---|---|
+| Caso de Uso | UC7 – Lembretes de Refeição |
+| Finalidade | Permitir ao usuário manter os horários dos lembretes de refeição, com as opções de definir, alterar e receber o lembrete. |
+| Atores | Usuário e Serviço de Notificação. O Usuário configura os horários e o Serviço de Notificação entrega o lembrete. |
+| Pré-condições | Ator previamente autenticado no sistema [UC1.3]. |
+| Fluxo Principal | 1 - **Ator** seleciona a opção “Lembretes de Refeição” no menu principal.<br>2 - **Sistema** apresenta a tela “Lembretes de Refeição” e ativa o [UC7.3].<br>3 - **Ator** seleciona entre [UC7.1], [UC7.2], [UC7.3] ou sair deste UC.<br>4 - **Sistema** retorna para o menu principal. |
+| Fluxos Alternativos | FA1 – Definir Horários de Refeições, vai para o [UC7.1] [passo 3 do Fluxo Principal]<br>FA2 – Alterar Horários de Refeições, vai para o [UC7.2] [passo 3 do Fluxo Principal]<br>FA3 – Enviar Lembrete de Refeição, vai para o [UC7.3] [passo 3 do Fluxo Principal]<br>FA4 – Saída do Caso de Uso [passo 4 do Fluxo Principal]<br>&emsp;1 - **Ator** seleciona a opção Sair.<br>&emsp;2 - **Sistema** retorna ao menu principal.<br>FA5 – Falha técnica ou indisponibilidade do sistema [Pode ocorrer em qualquer ponto do UC]<br>&emsp;1 - **Sistema** exibe mensagem de erro técnico com confirmação do ator.<br>&emsp;2 - **Sistema** registra o erro para o log de auditoria.<br>&emsp;3 - **Sistema** retorna ao menu principal ou à tela “Lembretes de Refeição”. |
+| Pós-condições | Manutenção (definição ou alteração) realizada pelo ator e lembretes enviados nos horários configurados. |
+| Regras de negócio | RN25: Tipos de refeição: café da manhã, lanche da manhã, almoço, lanche da tarde, jantar e ceia. A sugestão é feita pelos horários definidos em [UC7.1] ou, na falta deles, por faixas padrão.<br>RN37: O intervalo mínimo entre lembretes de refeição é de 30 minutos.<br>RN38: O lembrete não é enviado se a refeição daquele tipo já tiver sido registrada no dia.<br>RN39: Lembretes respeitam o fuso horário configurado no aparelho do Usuário. |
+| Dados Manipulados | **Tipo de refeição** escolhido em lista, obrigatório. **Horário** HH:MM, obrigatório. **Dias da semana** seleção múltipla, ao menos um dia, obrigatório. **Situação** (ativo ou inativo), obrigatória. **Antecedência do lembrete** em minutos, número inteiro de 0 a 60, opcional. **Intervalo do lembrete de água** em horas, número inteiro de 1 a 6, opcional. **Fuso horário** obtido do aparelho. **Período de pausa** com data inicial e final DD/MM/AAAA, opcional. **Lembrete** (tipo de refeição e horário). **Mensagem** texto de até 120 caracteres, gerado pelo sistema. **Data/hora do envio** DD/MM/AAAA HH:MM, gerada pelo sistema. **Situação do envio** gerada pelo sistema (enviado, falha ou cancelado). **Token do aparelho** texto gerado pelo aplicativo. |
+
+
+| Item | Descrição |
+|---|---|
 | Caso de Uso | UC7.1 – Definir Horários de Refeições |
 | Finalidade | Definir os horários das refeições para os quais o Usuário quer receber lembretes. |
 | Atores | Usuário. |
@@ -351,6 +442,19 @@
 | Dados Manipulados | **Lembrete** (tipo de refeição e horário). **Mensagem** texto de até 120 caracteres, gerado pelo sistema. **Data/hora do envio** DD/MM/AAAA HH:MM, gerada pelo sistema. **Situação do envio** gerada pelo sistema (enviado, falha ou cancelado). **Token do aparelho** texto gerado pelo aplicativo. |
 
 ## UC8 – Cadastro de Profissional
+
+| Item | Descrição |
+|---|---|
+| Caso de Uso | UC8 – Cadastro de Profissional |
+| Finalidade | Permitir a manutenção do cadastro de profissionais de saúde com as opções de incluir, alterar, validar o registro e desativar. |
+| Atores | Profissional de Saúde e Administrador. O Profissional mantém o próprio cadastro e o Administrador valida o registro. |
+| Pré-condições | Para incluir o próprio cadastro [UC8.1], nenhuma. Para as demais opções, ator previamente autenticado no sistema [UC1.3]. |
+| Fluxo Principal | 1 - **Ator** seleciona a opção “Cadastro de Profissional” no menu principal.<br>2 - **Sistema** apresenta a tela “Cadastro de Profissional” e ativa o [UC8.3].<br>3 - **Ator** seleciona entre [UC8.1], [UC8.2], [UC8.3], [UC8.4] ou sair deste UC.<br>4 - **Sistema** retorna para o menu principal. |
+| Fluxos Alternativos | FA1 – Incluir Profissional, vai para o [UC8.1] [passo 3 do Fluxo Principal]<br>FA2 – Alterar Profissional, vai para o [UC8.2] [passo 3 do Fluxo Principal]<br>FA3 – Validar Registro Profissional, vai para o [UC8.3] [passo 3 do Fluxo Principal]<br>FA4 – Desativar Profissional, vai para o [UC8.4] [passo 3 do Fluxo Principal]<br>FA5 – Saída do Caso de Uso [passo 4 do Fluxo Principal]<br>&emsp;1 - **Ator** seleciona a opção Sair.<br>&emsp;2 - **Sistema** retorna ao menu principal.<br>FA6 – Falha técnica ou indisponibilidade do sistema [Pode ocorrer em qualquer ponto do UC]<br>&emsp;1 - **Sistema** exibe mensagem de erro técnico com confirmação do ator.<br>&emsp;2 - **Sistema** registra o erro para o log de auditoria.<br>&emsp;3 - **Sistema** retorna ao menu principal ou à tela “Cadastro de Profissional”. |
+| Pós-condições | Manutenção (inclusão, alteração, validação ou desativação) realizada pelo ator. |
+| Regras de negócio | RN01: O e-mail é único no sistema e deve ter formato válido.<br>RN02: A senha deve ter no mínimo 8 caracteres, com ao menos uma letra e um número.<br>RN40: A combinação conselho + número de registro + UF é única no sistema; o CPF também é único.<br>RN41: Somente profissionais com status Validado aparecem na busca [UC9.1] e podem ter vínculos.<br>RN42: A validação deve ser concluída em até 3 dias úteis após o cadastro.<br>RN43: A validação é revista anualmente; se o registro deixar de estar ativo, o profissional é desativado [UC8.4]. |
+| Dados Manipulados | **Nome** com no máximo 60 caracteres, alfabético e obrigatório. **E-mail** com no máximo 100 caracteres, formato nome@dominio.com, único e obrigatório. **Senha** com 8 a 20 caracteres, ao menos uma letra e um número, obrigatória. **CPF** com 11 dígitos no padrão 999.999.999-99, único e obrigatório. **Profissão** escolhida em lista, obrigatória. **Conselho profissional** escolhido em lista (CRN, CRM, CREF etc.), obrigatório. **Número de registro** numérico de até 10 dígitos, obrigatório. **UF** escolhida em lista, obrigatória. **Especialidades** texto de até 100 caracteres, opcional. **Foto** JPG ou PNG de até 5 MB, opcional. **Descrição** de até 500 caracteres, opcional. **Status** gerado pelo sistema (Pendente de validação, Validado, Rejeitado ou Inativo). **Data de atualização** gerada pelo sistema (DD/MM/AAAA HH:MM). **Conselho**, **Situação no conselho** escolhida em lista (ativo ou inativo), obrigatória. **Documento comprobatório** PDF, JPG ou PNG de até 10 MB. **Decisão** escolhida em lista (aprovar, rejeitar ou solicitar documento), obrigatória. **Motivo** de até 200 caracteres, obrigatório na rejeição. **Data e responsável** gerados pelo sistema. **Data da desativação** gerada (DD/MM/AAAA HH:MM). **Responsável** gerado pelo sistema. |
+
 
 | Item | Descrição |
 |---|---|
@@ -401,6 +505,19 @@
 | Dados Manipulados | **Motivo** de até 200 caracteres, obrigatório. **Senha** obrigatória na desativação pelo próprio Profissional. **Status** gerado pelo sistema. **Data da desativação** gerada (DD/MM/AAAA HH:MM). **Responsável** gerado pelo sistema. |
 
 ## UC9 – Vínculo com Profissional
+
+| Item | Descrição |
+|---|---|
+| Caso de Uso | UC9 – Vínculo com Profissional |
+| Finalidade | Permitir ao usuário se vincular a um profissional de saúde, com as opções de buscar, solicitar, autorizar o compartilhamento de dados, aceitar e encerrar o vínculo. |
+| Atores | Usuário e Profissional de Saúde. O Usuário solicita e autoriza o vínculo e o Profissional o aceita. |
+| Pré-condições | Ator previamente autenticado no sistema [UC1.3]. |
+| Fluxo Principal | 1 - **Ator** seleciona a opção “Vínculo com Profissional” no menu principal.<br>2 - **Sistema** apresenta a tela “Vínculo com Profissional” e ativa o [UC9.1].<br>3 - **Ator** seleciona entre [UC9.1], [UC9.2], [UC9.3], [UC9.4], [UC9.5] ou sair deste UC.<br>4 - **Sistema** retorna para o menu principal. |
+| Fluxos Alternativos | FA1 – Buscar Profissional, vai para o [UC9.1] [passo 3 do Fluxo Principal]<br>FA2 – Solicitar Vínculo, vai para o [UC9.2] [passo 3 do Fluxo Principal]<br>FA3 – Autorizar Compartilhamento de Dados, vai para o [UC9.3] [passo 3 do Fluxo Principal] (opção a partir da solicitação de vínculo [UC9.2])<br>FA4 – Aceitar Vínculo, vai para o [UC9.4] [passo 3 do Fluxo Principal]<br>FA5 – Encerrar Vínculo, vai para o [UC9.5] [passo 3 do Fluxo Principal]<br>FA6 – Saída do Caso de Uso [passo 4 do Fluxo Principal]<br>&emsp;1 - **Ator** seleciona a opção Sair.<br>&emsp;2 - **Sistema** retorna ao menu principal.<br>FA7 – Falha técnica ou indisponibilidade do sistema [Pode ocorrer em qualquer ponto do UC]<br>&emsp;1 - **Sistema** exibe mensagem de erro técnico com confirmação do ator.<br>&emsp;2 - **Sistema** registra o erro para o log de auditoria.<br>&emsp;3 - **Sistema** retorna ao menu principal ou à tela “Vínculo com Profissional”. |
+| Pós-condições | Manutenção (busca, solicitação, autorização, aceite ou encerramento) realizada pelo ator. |
+| Regras de negócio | RN41: Somente profissionais com status Validado aparecem na busca [UC9.1] e podem ter vínculos.<br>RN44: O perfil público exibe apenas nome, foto, profissão, registro, UF, especialidades e descrição; contato pessoal não é exibido.<br>RN45: O Usuário pode ter no máximo 3 vínculos ativos ou pendentes ao mesmo tempo, e apenas um por profissional.<br>RN46: Solicitações sem resposta em 15 dias expiram automaticamente.<br>RN47: O diário alimentar é o escopo mínimo obrigatório para que o vínculo exista.<br>RN48: O consentimento pode ser revogado a qualquer momento, o que encerra o vínculo [UC9.5].<br>RN49: Cada profissional pode ter no máximo 100 clientes com vínculo ativo.<br>RN50: Após o encerramento, o profissional não acessa nenhum dado do Usuário, inclusive do período em que o vínculo esteve ativo. |
+| Dados Manipulados | **Nome** com no máximo 60 caracteres, opcional. **Profissão**, **especialidade** e **UF** escolhidas em lista, opcionais. **Código de convite** alfanumérico de 8 caracteres, opcional. **Perfil público** (nome, foto, profissão, registro, UF, especialidades e descrição), somente leitura. **Usuário** e **profissional** identificados pelo sistema. **Mensagem** de até 300 caracteres, opcional. **Data da solicitação** gerada (DD/MM/AAAA HH:MM). **Status do vínculo** gerado pelo sistema (Solicitado, Ativo, Recusado, Cancelado, Expirado ou Encerrado). **Escopo autorizado** seleção múltipla (diário alimentar, fotos, hidratação, perfil e peso), com o diário alimentar obrigatório. **Aceite do termo** caixa de seleção obrigatória. **Versão do termo** gerada pelo sistema. **Data/hora** (DD/MM/AAAA HH:MM:SS) e **IP** gerados pelo sistema. **Vínculo** identificado pelo sistema. **Decisão** escolhida em lista (aceitar ou recusar), obrigatória. **Data de início** gerada (DD/MM/AAAA). **Motivo da recusa** de até 200 caracteres, opcional. **Motivo** de até 200 caracteres, opcional. **Data de encerramento** gerada (DD/MM/AAAA HH:MM). **Quem encerrou** gerado pelo sistema (Usuário, Profissional ou Sistema). |
+
 
 | Item | Descrição |
 |---|---|
@@ -463,6 +580,19 @@
 | Dados Manipulados | **Vínculo** identificado pelo sistema. **Motivo** de até 200 caracteres, opcional. **Data de encerramento** gerada (DD/MM/AAAA HH:MM). **Quem encerrou** gerado pelo sistema (Usuário, Profissional ou Sistema). |
 
 ## UC10 – Acompanhamento de Clientes
+
+| Item | Descrição |
+|---|---|
+| Caso de Uso | UC10 – Acompanhamento de Clientes |
+| Finalidade | Permitir ao profissional de saúde acompanhar os clientes vinculados, com as opções de listar clientes e consultar o diário e a evolução de cada um. |
+| Atores | Profissional de Saúde. Acompanha os clientes que autorizaram o compartilhamento. |
+| Pré-condições | Profissional previamente autenticado no sistema [UC1.3], com registro validado [UC8.3] e com ao menos um cliente vinculado [UC9.4]. |
+| Fluxo Principal | 1 - **Ator** seleciona a opção “Acompanhamento de Clientes” no menu principal.<br>2 - **Sistema** apresenta a tela “Acompanhamento de Clientes” e ativa o [UC10.1], [UC10.2] e [UC10.3].<br>3 - **Ator** seleciona entre [UC10.1], [UC10.2], [UC10.3] ou sair deste UC.<br>4 - **Sistema** retorna para o menu principal. |
+| Fluxos Alternativos | FA1 – Listar Clientes Vinculados, vai para o [UC10.1] [passo 3 do Fluxo Principal]<br>FA2 – Consultar Diário do Cliente, vai para o [UC10.2] [passo 3 do Fluxo Principal]<br>FA3 – Consultar Evolução do Cliente, vai para o [UC10.3] [passo 3 do Fluxo Principal]<br>FA4 – Saída do Caso de Uso [passo 4 do Fluxo Principal]<br>&emsp;1 - **Ator** seleciona a opção Sair.<br>&emsp;2 - **Sistema** retorna ao menu principal.<br>FA5 – Falha técnica ou indisponibilidade do sistema [Pode ocorrer em qualquer ponto do UC]<br>&emsp;1 - **Sistema** exibe mensagem de erro técnico com confirmação do ator.<br>&emsp;2 - **Sistema** registra o erro para o log de auditoria.<br>&emsp;3 - **Sistema** retorna ao menu principal ou à tela “Acompanhamento de Clientes”. |
+| Pós-condições | Consulta realizada pelo profissional, com o acesso registrado no log de auditoria. |
+| Regras de negócio | RN49: Cada profissional pode ter no máximo 100 clientes com vínculo ativo.<br>RN50: Após o encerramento, o profissional não acessa nenhum dado do Usuário, inclusive do período em que o vínculo esteve ativo.<br>RN51: Todo acesso de um profissional aos dados de um cliente é registrado (profissional, cliente, dado acessado, data/hora), e o Usuário pode consultar esse histórico.<br>RN52: O profissional não pode criar, alterar ou excluir dados do cliente.<br>RN53: O profissional pode ver dados a partir de 30 dias antes da data de início do vínculo, para ter um histórico de referência. |
+| Dados Manipulados | **Busca por nome** com no máximo 60 caracteres, opcional. **Ordenação** escolhida em lista (último registro ou adesão), opcional. **Nome do cliente**, **data de início do vínculo** (DD/MM/AAAA), **data do último registro** e **adesão à meta** em percentual, somente leitura. **Data** DD/MM/AAAA, obrigatória. **Refeições, itens e totais nutricionais**, **meta do cliente** e **fotos** (se autorizadas), somente leitura. **Registro de acesso** gerado pelo sistema (profissional, cliente, dado acessado e data/hora). **Período** com data inicial e final no formato DD/MM/AAAA, obrigatórias e limitadas pela RN53. **Médias de calorias e macronutrientes**, **consumo de água** (ml) e **evolução do peso** (kg), somente leitura. **Formato de exportação** PDF, opcional. |
+
 
 | Item | Descrição |
 |---|---|
