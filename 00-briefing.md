@@ -2,7 +2,7 @@
 
 ## 1. Informações gerais    
 1.1 - Nome do sistema: NutriCount  
-1.2 - Nome da equipe:  Pedro Henrique Dos Santos Soares e 
+1.2 - Nome da equipe:  Pedro Henrique Dos Santos Soares e Mateus Itibal Gomes de Freitas
 
 ## 2. Problema e/ou necessidade    
 2.1 - Pessoas que querem controlar a alimentação (emagrecer, ganhar massa ou manter o peso) têm dificuldade de saber quantas calorias e nutrientes consomem por dia e de manter o hábito de beber água. O sistema deve permitir registrar refeições (com foto opcional) e consumo de água de forma rápida, calcular automaticamente calorias e macronutrientes, comparar o consumo com metas pessoais, lembrar o usuário de registrar as refeições nos horários habituais e permitir que o usuário se vincule ao profissional que o acompanha (nutricionista, nutrólogo ou médico), que passa a ver os resultados do cliente diretamente no sistema. 
