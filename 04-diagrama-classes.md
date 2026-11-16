@@ -1,6 +1,3 @@
-<img width="8380" height="2668" alt="diagrama-classes-completo" src="https://github.com/user-attachments/assets/b49910a0-26c3-4df7-bf04-3cafebb8d19e" /># 🏗️ Diagrama de Classes
-
-[04-diagrama-classes.md](https://github.com/user-attachments/files/34924622/04-diagrama-classes.md)
 # 🏗️ Diagrama de Classes
 
 ## 1. Introdução
@@ -42,9 +39,9 @@ O Diagrama de Classes do NutriCount foi elaborado a partir do **Diagrama de Caso
 
 ## 2. Diagrama de Classes completo
 
-![Diagrama de classes completo do NutriCount](<img width="8380" height="2668" alt="diagrama-classes-completo" src="https://github.com/user-attachments/assets/6657cc0d-7a63-4afc-8145-36f97b443a01" />)
+<img width="8380" height="2668" alt="diagrama-classes-completo" src="https://github.com/user-attachments/assets/6657cc0d-7a63-4afc-8145-36f97b443a01" />
 
-> A imagem completa é grande. Para ampliar, abra [`<img width="8380" height="2668" alt="diagrama-classes-completo" src="https://github.com/user-attachments/assets/d5dcb17e-8b83-41cc-95d5-0233d7de14d9" />). Os recortes abaixo mostram cada caso de uso agrupador com as suas classes.
+> A imagem completa é grande. Clique nela para abrir em tamanho real e ampliar. Os recortes abaixo mostram cada caso de uso agrupador com as suas classes.
 
 ---
 
@@ -53,52 +50,52 @@ O Diagrama de Classes do NutriCount foi elaborado a partir do **Diagrama de Caso
 ### 3.1 UC1 — Cadastro de Usuário
 Classes: `CadastroUsuario` (herda de `Pessoa`), `InclusaoUsuario` [UC1.1, «extend»], `AlteracaoUsuario` [UC1.2, «extend»], `AutenticacaoUsuario` [UC1.3, «include»], `DesativacaoUsuario` [UC1.4, «extend»].
 
-![UC1](<img width="1747" height="1085" alt="classes-uc1" src="https://github.com/user-attachments/assets/6971568d-2256-4dfa-91f2-d389fababa50" />)
+<img width="1747" height="1085" alt="classes-uc1" src="https://github.com/user-attachments/assets/6971568d-2256-4dfa-91f2-d389fababa50" />
 
 ### 3.2 UC2 — Perfil e Meta Calórica
 Classes: `CadastroPerfil` (composto por `MetaCalorica` e `RegistroPeso`), `AlteracaoPerfil` [UC2.1], `DefinicaoMetaCalorica` [UC2.2], `CalculoNecessidadeCalorica` [UC2.3, «include»], `ConsultaPerfil` [UC2.4, «include»].
 
-![UC2](<img width="1727" height="1088" alt="classes-uc2" src="https://github.com/user-attachments/assets/34704c61-d1b7-4bf5-a322-0bb3e62cbaa4" />
+<img width="1727" height="1088" alt="classes-uc2" src="https://github.com/user-attachments/assets/34704c61-d1b7-4bf5-a322-0bb3e62cbaa4" />
 
 ### 3.3 UC3 — Catálogo de Alimentos
 Classes: `CadastroAlimento`, `InclusaoAlimento` [UC3.1], `AlteracaoAlimento` [UC3.2], `ConsultaAlimento` [UC3.3, «include»], `DesativacaoAlimento` [UC3.4], `ImportacaoAlimento` [UC3.5], que usa a interface `BaseNutricionalExterna`, implementada por `TacoApiAdapter`.
 
-![UC3](<img width="2668" height="1062" alt="classes-uc3" src="https://github.com/user-attachments/assets/8e5c6982-a35e-4ef6-948b-9d5ac6f7b423" />)
+<img width="2668" height="1062" alt="classes-uc3" src="https://github.com/user-attachments/assets/8e5c6982-a35e-4ef6-948b-9d5ac6f7b423" />
 
 ### 3.4 UC4 — Diário Alimentar
 Classes: `CadastroRefeicao` (composta por `ItemRefeicao` e `FotoRefeicao`), `RegistroRefeicao` [UC4.1], `AlteracaoRefeicao` [UC4.2], `ExclusaoRefeicao` [UC4.3], `ConsultaDiario` [UC4.4, «include»] e `AnexoFotoRefeicao` [UC4.5], que estende `RegistroRefeicao`. `ItemRefeicao` guarda cópia dos valores nutricionais do alimento (RN20).
 
-![UC4](<img width="1717" height="1780" alt="classes-uc4" src="https://github.com/user-attachments/assets/2a0f87bc-f7a8-4c37-bf79-25b9ce81858c" />)
+<img width="1717" height="1780" alt="classes-uc4" src="https://github.com/user-attachments/assets/2a0f87bc-f7a8-4c37-bf79-25b9ce81858c" />
 
 ### 3.5 UC5 — Relatórios de Consumo
 Classes: `RelatorioConsumo`, `ConsultaResumoDiario` [UC5.1], `ConsultaHistorico` [UC5.2] e `ComparacaoMeta` [UC5.3], todos «include». `ComparacaoMeta` devolve a enumeração `SituacaoMeta` (RN33).
 
-![UC5](<img width="1914" height="1091" alt="classes-uc5" src="https://github.com/user-attachments/assets/8d3cb8a5-a8b6-46bd-b8b9-3d2f0b7e8e0f" />)
+<img width="1914" height="1091" alt="classes-uc5" src="https://github.com/user-attachments/assets/8d3cb8a5-a8b6-46bd-b8b9-3d2f0b7e8e0f" />
 
 ### 3.6 UC6 — Controle de Hidratação
 Classes: `ControleHidratacao` (composto por `RegistroAgua`), `DefinicaoMetaAgua` [UC6.1], `RegistroConsumoAgua` [UC6.2], `AlteracaoConsumoAgua` [UC6.3], `ConsultaEvolucaoHidratacao` [UC6.4, «include»].
 
-![UC6](<img width="1588" height="812" alt="classes-uc6" src="https://github.com/user-attachments/assets/79eaabc4-94ef-4a21-afe3-50b7d213b8b0" />)
+<img width="1588" height="812" alt="classes-uc6" src="https://github.com/user-attachments/assets/79eaabc4-94ef-4a21-afe3-50b7d213b8b0" />
 
 ### 3.7 UC7 — Lembretes de Refeição
 Classes: `CadastroLembrete`, `DefinicaoHorario` [UC7.1], `AlteracaoHorario` [UC7.2], `EnvioLembrete` [UC7.3, «include»], que usa a interface `ServicoNotificacao` e verifica se a refeição já foi registrada (RN38).
 
-![UC7](<img width="1193" height="1458" alt="classes-uc7" src="https://github.com/user-attachments/assets/2220f471-bef8-4e92-b5db-6f7b3c1fa8f1" />
+<img width="1193" height="1458" alt="classes-uc7" src="https://github.com/user-attachments/assets/2220f471-bef8-4e92-b5db-6f7b3c1fa8f1" />
 
 ### 3.8 UC8 — Cadastro de Profissional
 Classes: `CadastroProfissional` (herda de `Pessoa`), `InclusaoProfissional` [UC8.1], `AlteracaoProfissional` [UC8.2], `ValidacaoRegistro` [UC8.3, «include»], executada pelo `Administrador`, e `DesativacaoProfissional` [UC8.4].
 
-![UC8](<img width="1616" height="893" alt="classes-uc8" src="https://github.com/user-attachments/assets/f90ad062-4c75-4780-b4d5-872e98d9378c" />)
+<img width="1616" height="893" alt="classes-uc8" src="https://github.com/user-attachments/assets/f90ad062-4c75-4780-b4d5-872e98d9378c" />
 
 ### 3.9 UC9 — Vínculo com Profissional
 Classes: `Vinculo` (composto por `Consentimento`), `BuscaProfissional` [UC9.1, «include»], `SolicitacaoVinculo` [UC9.2], que inclui `AutorizacaoCompartilhamento` [UC9.3], `AceiteVinculo` [UC9.4] e `EncerramentoVinculo` [UC9.5].
 
-![UC9](<img width="1815" height="1187" alt="classes-uc9" src="https://github.com/user-attachments/assets/47b1a9f8-f605-46dd-b13e-f0079f2a8c40" />)
+<img width="1815" height="1187" alt="classes-uc9" src="https://github.com/user-attachments/assets/47b1a9f8-f605-46dd-b13e-f0079f2a8c40" />
 
 ### 3.10 UC10 — Acompanhamento de Clientes
 Classes: `AcompanhamentoCliente` (composto por `LogAcesso`, RN51), `ListagemClientes` [UC10.1], `ConsultaDiarioCliente` [UC10.2] e `ConsultaEvolucaoCliente` [UC10.3], todos «include».
 
-![UC10](<img width="1627" height="1024" alt="classes-uc10" src="https://github.com/user-attachments/assets/d7887b5f-8b87-41b2-85e1-73008928c6ea" />)
+<img width="1627" height="1024" alt="classes-uc10" src="https://github.com/user-attachments/assets/d7887b5f-8b87-41b2-85e1-73008928c6ea" />
 
 ---
 
@@ -180,4 +177,3 @@ Classes: `AcompanhamentoCliente` (composto por `LogAcesso`, RN51), `ListagemClie
 | StatusVinculo | SOLICITADO, ATIVO, RECUSADO, CANCELADO, EXPIRADO, ENCERRADO | UC9.2 a UC9.5, RN46 |
 | EscopoDado | DIARIO_ALIMENTAR, FOTOS, HIDRATACAO, PERFIL_PESO | UC9.3, RN47 |
 | Uf | 27 unidades da federação | UC8.1 |
-
