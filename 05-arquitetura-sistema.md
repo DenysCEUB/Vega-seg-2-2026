@@ -240,6 +240,8 @@ backend/
 | Reativar lembretes pausados | Diária | Lembretes com `pausadoAte` vencido voltam a `ativo` |
 | Anonimizar contas inativas | Diária | Contas desativadas há mais de 90 dias têm os dados pessoais anonimizados (RN07) |
 
+**Dependência da hospedagem:** como o agendador (`node-cron`) roda dentro do próprio serviço da API, os lembretes só são enviados enquanto o servidor estiver ativo. No plano gratuito do Render o serviço hiberna após um período sem acessos. Por isso, o monitor de disponibilidade (seção 8.3) faz duas coisas: acompanha a meta de 99% e mantém o serviço acordado para o agendador continuar rodando. A tarefa de lembretes consulta por data e hora (e não por "tick" de relógio), então, se o servidor ficar parado alguns minutos, os lembretes vencidos são enviados na primeira execução seguinte, respeitando o limite de 3 envios (RN38, RN39).
+
 ### 4.5 Integração com a base nutricional
 
 | Fonte | Forma de uso | Observação |
@@ -591,7 +593,7 @@ flowchart TB
 
 ### 8.3 Disponibilidade e monitoramento
 
-- **Monitor de disponibilidade** (UptimeRobot) consultando `GET /api/v1/health` a cada 5 minutos, para acompanhar a meta de 99%.
+- **Monitor de disponibilidade** (UptimeRobot) consultando `GET /api/v1/health` a cada 5 minutos, para acompanhar a meta de 99% e, ao mesmo tempo, manter o servidor gratuito ativo para o agendador de lembretes (seção 4.4).
 - **Registro de erros** com logs estruturados no Render.
 - **Backup** diário automático do banco, com restauração para um ponto no tempo nos últimos 7 dias.
 
@@ -643,6 +645,7 @@ flowchart TB
 |---|---|
 | Base nutricional externa fora do ar | Catálogo local com a tabela TACO; a base externa é usada só como complemento |
 | Hibernação do servidor no plano gratuito do Render (após inatividade) | Monitor de disponibilidade mantém o serviço ativo; em produção real, migrar para plano pago |
+| Falha do monitor ou do servidor parado: lembretes atrasados ou perdidos | Consulta por data e hora com recuperação dos lembretes vencidos na execução seguinte; alerta do UptimeRobot por e-mail aos integrantes; em produção real, migrar para plano pago ou para um serviço de agendamento externo |
 | Navegador sem suporte a push (ex.: iOS sem PWA instalado) | Envio alternativo por e-mail, conforme a preferência do usuário |
 | Limites dos planos gratuitos | Compressão de fotos no navegador e no Cloudinary; volume de dados pequeno no período de testes |
 | Prazo curto da dupla | Priorizar UC1, UC2, UC3, UC4 e UC6 (núcleo do sistema), depois UC5 e UC7 e, por último, UC8 a UC10 |

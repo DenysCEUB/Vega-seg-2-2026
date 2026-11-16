@@ -39,8 +39,7 @@ O NutriCount permite que o usuário cadastre seu perfil, registre o que come e b
 - **Acompanhamento de Clientes [UC10]** - O profissional consulta a lista de clientes vinculados e seus resultados (diário alimentar, hidratação e evolução) no seu próprio perfil.
 
 ## 5. Restrições
-Apresente limitações técnicas, prazos, orçamento ou requisitos obrigatórios.  
-- Tempo reduzido de desenvolvimento: os integrantes ingressou na disciplina no meio do semestre, o que diminuiu o tempo disponível para o estudo do conteúdo e a elaboração dos artefatos.
+- Tempo reduzido de desenvolvimento: os integrantes ingressaram na disciplina no meio do semestre, o que diminuiu o tempo disponível para o estudo do conteúdo e a elaboração dos artefatos.
 - Equipe formada por uma dupla (dois integrantes), o que limita a capacidade de produção e o volume de funcionalidades entregues em cada etapa.
 - Sistema acessível via navegador, com interface responsiva para uso no celular.
 - Tratamento dos dados pessoais e de saúde conforme a LGPD: o compartilhamento com o profissional só ocorre mediante autorização explícita do usuário, que pode encerrar o vínculo quando quiser. O profissional acessa apenas os dados dos clientes vinculados a ele.
@@ -55,3 +54,5 @@ Apresente limitações técnicas, prazos, orçamento ou requisitos obrigatórios
 - Pelo menos 60% dos usuários de teste batem a meta de água em 5 dos 7 dias.
 - Primeiro lembrete enviado 10 minutos após o horário configurado sem registro da refeição, com reenvio a cada 30 minutos (até 3 lembretes) até que a refeição seja registrada.
 - O profissional consegue consultar os resultados de um cliente vinculado em até 3 cliques.
+
+**Como os critérios serão medidos:** os percentuais de cumprimento da meta calórica e da meta de água são apurados na avaliação com os usuários de teste, a partir da comparação com a meta (UC5.3) e da evolução da hidratação (UC6.4). O tempo de registro (menos de 1 minuto) e o acesso do profissional em até 3 cliques são medidos no roteiro de teste de usabilidade do Protótipo.
